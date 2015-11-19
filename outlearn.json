@@ -10,8 +10,10 @@
       "coverImage" : "https://raw.githubusercontent.com/outlearn-content/assets/master/clouds.jpg",
       "coverColor" : "#55aae7",
       "pages" : [
+        {"page" : "./pages/welcome.md"},
         {"module" : "week-in-life"},
-        {"module" : "mobile-auth"}
+        {"module" : "mobile-auth"},
+        {"page" : "./pages/next-steps.md"}
       ]
     }
   ],
