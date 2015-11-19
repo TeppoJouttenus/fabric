@@ -1,0 +1,23 @@
+{
+  "olpVersion" : "0.1",
+
+  "paths" : [
+    {
+      "name" : "fabric-flight2015",
+      "title" : "Twitter Fabric Updates from Flight 2015",
+      "description" : "Learn what's new in Fabric, how you can use it, and what the Fabric team is doing themselves to maximize productivity.",
+      "privacy" : "public",
+      "coverImage" : "https://raw.githubusercontent.com/outlearn-content/assets/master/clouds.jpg",
+      "coverColor" : "#55aae7",
+      "pages" : [
+        {"module" : "week-in-life"},
+        {"module" : "mobile-auth"}
+      ]
+    }
+  ],
+
+  "modules" : [
+    {"olm" : "./modules/week-in-life.md"},
+    {"olm" : "./modules/mobile-auth.md"}
+  ]
+}
