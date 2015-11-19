@@ -13,12 +13,14 @@
 
 <!-- @section -->
 
-## Video
+## Mobile Auth Services by Dalton Hubble
+
+### Video
+
+Developing an app is a journey, as you try to go from concept to cash as fast as possible. You need to spend your time focused on building amazing user experiences rather than dealing with bug fixes or the stress of a new release. This talk will walk through a typical week of a developer, highlighting all of the ways you and your team can use Fabric to take your development quality and speed to the next level.
 
 <!-- @link, "url": "https://www.youtube.com/watch?v=IsFx3yXIhdM" -->
 
-<!-- @section -->
-
-## Slides
+### Slides
 
 <!-- @link, "url": "https://g.twimg.com/dev/flight/2015/keynotes/Flight2015-Hubble_Dalton-Mobile_Auth_Services.pdf" -->
