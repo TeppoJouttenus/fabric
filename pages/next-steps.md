@@ -4,3 +4,7 @@ Now that you've been through all of that awesome content, check out the [Fabric 
 
 Don't be a stranger,  
 The Fabric Team
+
+<img src="https://g.twimg.com/dev/marketing/fabric-homepage/introducing-fabric-homepage.png" alt="Fabric Logo" style="width:250px;height:250px" align="left">
+
+<br clear="all">
