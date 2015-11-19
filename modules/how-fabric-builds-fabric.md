@@ -14,16 +14,12 @@
 
 <!-- @section -->
 
-## A Week in the Life of a Fabric Developer by Brian Swift and Hemal Shah
-
-### Talk
+## How Fabric Builds Fabric by Kristen Johnson and Sam Phillips
 
 At Fabric, we take a customer-centered approach to our workflow, asking, 'what value are we delivering to customers this week?' This session will cover how we use a Flow process to address bottlenecks and keep features, improvements, and fixes flowing to customers.
 
-<!-- @link, "url": "https://www.youtube.com/watch?v=KIS4ySxWQgU" -->
-
-### Slides
+<iframe width="560" height="315" src="https://www.youtube.com/embed/KIS4ySxWQgU" frameborder="0" allowfullscreen></iframe>
 
 You can follow along with the slides as you watch the talk.
 
-<!-- @link, "url": "https://g.twimg.com/dev/flight/2015/keynotes/Flight2015-Johnson_Kristen-How_Fabric_Builds_Fabric.pdf" -->
+<iframe width="560" height="315" src="https://g.twimg.com/dev/flight/2015/keynotes/Flight2015-Johnson_Kristen-How_Fabric_Builds_Fabric.pdf" frameborder="0" allowfullscreen></iframe>
