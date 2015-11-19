@@ -23,4 +23,6 @@ Developing an app is a journey, as you try to go from concept to cash as fast as
 
 You can follow along with the slides as you watch the talk.
 
+<iframe width="560" height="315" src="https://g.twimg.com/dev/flight/2015/keynotes/Flight2015-Hermal_and_Swift-Fabric_a_Week.pdf" frameborder="0" allowfullscreen></iframe>
+
 <!-- @link, "url": "https://g.twimg.com/dev/flight/2015/keynotes/Flight2015-Hermal_and_Swift-Fabric_a_Week.pdf" -->
