@@ -23,3 +23,5 @@ You can follow along with the slides as you watch the talk.
 <iframe width="560" height="315" src="https://www.youtube.com/embed/XOBQDUwhSLk" frameborder="0" allowfullscreen></iframe>
 
 <iframe width="560" height="315" src="https://g.twimg.com/dev/flight/2015/keynotes/Flight2015-Soto_and_Smith-Building_The_Fabrik_SDKs.pdf" frameborder="0" allowfullscreen></iframe>
+
+<!-- @task, "hasDeliverable" : true, "text" : "What's your favorite SDK for mobile app development? What's the most delightful thing about it?" -->
