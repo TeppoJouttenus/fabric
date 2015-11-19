@@ -22,3 +22,5 @@ You can follow along with the slides as you watch the talk.
 <iframe width="560" height="315" src="https://www.youtube.com/embed/IsFx3yXIhdM" frameborder="0" allowfullscreen></iframe>
 
 <iframe width="560" height="315" src="https://g.twimg.com/dev/flight/2015/keynotes/Flight2015-Hubble_Dalton-Mobile_Auth_Services.pdf" frameborder="0" allowfullscreen></iframe>
+
+<!-- @task, "text" : "Try adding a Fabric single sign-on kit to your app." -->
