@@ -11,11 +11,11 @@
       "coverColor" : "#55aae7",
       "pages" : [
         {"page" : "./pages/welcome.md"},
-        {"module" : "week-in-life"},
-        {"module" : "mobile-auth"},
-        {"module" : "rapid-development"},
-        {"module" : "building-fabric-sdks"},
-        {"module" : "how-fabric-builds-fabric"},
+        {"module" : "week-in-life", "preface" : "There's so much to worry about when you're building a mobile app. Here's a talk about how Fabric can help whether you work for a big enterprise or build an app as your own side project."},
+        {"module" : "mobile-auth", "preface" : "It's hard work building an auth experience that's easy to use. Check out this talk about how to use Fabric to make is easier, whether your use case is simple or more advanced."},
+        {"module" : "rapid-development", "preface" : "We open sourced Galley because it has helped us a ton with orchestrating our Docker setup as we build Fabric. Take a look!"},
+        {"module" : "building-fabric-sdks", "preface" : "Since we work so much with SDKs, we wanted to share some of the key things we've observed in the best SDKs. We believe in copying good ideas from others, feel free to do the same!"},
+        {"module" : "how-fabric-builds-fabric", "preface" : "As a final module in this path, we're including something a bit different. The Fabric team has spent a lot of time battle testing the way we build software so we wanted to share some of our lessons learned with all of you. We hope you enjoy it!"},
         {"page" : "./pages/next-steps.md"}
       ]
     }
