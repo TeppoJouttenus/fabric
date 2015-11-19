@@ -24,6 +24,6 @@ You can follow along with the slides as you watch the talk.
 
 <iframe width="560" height="315" src="https://g.twimg.com/dev/flight/2015/keynotes/Flight2015-Smith_Joan-Rapid_Development_and_Reliable_Testing_with_Docker.pdf" frameborder="0" allowfullscreen></iframe>
 
-You can find the repo on [GitHub](https://github.com/twitter-fabric/galley).
+You can find our Docker orchestrator Galley on [GitHub](https://github.com/twitter-fabric/galley).
 
-<!-- @task, "text" : "Check out our Docker orchestrator Galley on GitHub." -->
+<!-- @task, "text" : "Check out Galley on GitHub." -->
