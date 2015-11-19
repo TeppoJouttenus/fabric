@@ -23,7 +23,7 @@
 
   "modules" : [
     {"olm" : "./modules/week-in-life.md"},
-    {"olm" : "./modules/mobile-auth.md"}
+    {"olm" : "./modules/mobile-auth.md"},
     {"olm" : "./modules/rapid-development.md"},
     {"olm" : "./modules/building-fabric-sdks.md"},
     {"olm" : "./modules/how-fabric-builds-fabric.md"}
