@@ -8,3 +8,5 @@ Cheers,
 The Fabric Team
 
 <img src="https://g.twimg.com/dev/marketing/fabric-homepage/introducing-fabric-homepage.png" alt="Fabric Logo" style="width:250px;height:250px" align="left">
+
+<br clear="all">
