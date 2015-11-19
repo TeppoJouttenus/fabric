@@ -22,6 +22,6 @@ You can follow along with the slides as you watch the talk.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/fzT-GVvqNx4" frameborder="0" allowfullscreen></iframe>
 
-<iframe width="560" height="315" src="https://g.twimg.com/dev/flight/2015/keynotes/Flight2015-Hermal_and_Swift-Fabric_a_Week.pdf" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="456" src="https://g.twimg.com/dev/flight/2015/keynotes/Flight2015-Hermal_and_Swift-Fabric_a_Week.pdf" frameborder="0" allowfullscreen></iframe>
 
 <!-- @task, "hasDeliverable" : true, "text" : "What's the most frustrating part of app development for you? How do you deal with it?" -->
