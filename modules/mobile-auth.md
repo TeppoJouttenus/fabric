@@ -25,7 +25,7 @@ You can follow along with the slides as you watch the talk.
 
 <!-- @task, "text" : "Try adding a Fabric single sign-on kit to your app." -->
 
-If you prefer to just read the slides without the video, below are the presenter notes. They are labeled with the slide numbers to help you track the slides.
+If you prefer to just read the slides without the video, below are the presenter notes.
 
 **Slide 2:**  
 Let’s get started. Many of you know that authentication can be one of the most challenging parts of building a mobile app. Everything from making login easy, to verifying emails and phone numbers, to session systems and key rotation can be tricky.
@@ -70,6 +70,7 @@ It handles the complexities of
 * prompting users to grant your app access to their account
 * getting the Twitter or Digits access token
 * and signing each of these request made to the API
+
 It saves you a lot of work.
 
 **Slide 10:**  
@@ -77,6 +78,7 @@ Let’s take a look at what that flow looks like to one of your users.
 
 * An app can get a “Login with Twitter” button, which uses the installed Twitter App. Prompted to login with current account or switch accounts. If Twitter App not installed, flow falls back to web view
 * The “Login with Digits” button is similar. The user grants access by entering their phone number and receives an SMS confirmation code to confirm the phone number.
+
 So very quickly, your mobile app can add this flow to login a user to Twitter or Digits.
 
 **Slide 11:**  
@@ -97,50 +99,129 @@ In the mobile app, its easy to grab the token after Single Sign-On completes.
 
 On Android, get the token from the Twitter or Digits Session in the login success callback.
 
-**Slide 16:**
+**Slide 16:**  
+On iOS, get the token fields from the Twitter and Digits Session in the login completion block.
 
-**Slide 17:**
+**Slide 17:**  
+What would a note app want these access token for?
 
-**Slide 18:**
+Well, access tokens are valuable because they act as a verifiable proof (pause) of a user’s identity.
 
-**Slide 19:**
+**Slide 18:**  
+So what that means is that if the mobile client can securely send the token to its own auth service, Twitter and Digits provide endpoints to
 
-**Slide 20:**
+* validate those tokens
+* respond with the corresponding Twitter User or Digits Account
 
-**Slide 21:**
+**Slide 19:**  
+To verify a Twitter Token, the *server* can make an OAuth1 Authorized Request, using the Token Secret and known Twitter Application Secret.
 
-**Slide 22:**
+The verification endpoint responds with the Twitter User, showing that the token is tied to the Note App and the Twitter identity.
 
-**Slide 23:**
+**Slide 20:**  
+To verify a Digits Token, the server can make a similar OAuth1 Authorized Request to receive the Digits Account tried to the token and application.
 
-**Slide 24:**
+This concept of server verification of tokens passed from a mobile client is very important. Let’s go through an example of a tiny authentication service written in Go.
 
-**Slide 25:**
+**Slide 21:**  
+To do this in Go, I’ll show a couple of ContextHandlers.
+* All you need to know about ContextHandlers is that they’re effectively **functions** that **receive requests** and **write responses**
+* chained - They tend to be **small** and single purpose so they can be **chained** together for more complex operations.
+* ctx - The context is just an argument passed between chained handers to propagate values btw handlers.
 
-**Slide 26:**
+**Slide 22:**  
+The very first handler is responsible for reading a POSTed Twitter or Digits token and secret from a request.
 
-**Slide 27:**
+If that succeeds, it writes the token and secret to the context and calls the next handler, which is called success in this example.
 
-**Slide 28:**
+**Slide 23 & 24:**  
+The next handler does the verification we talked about.
 
-**Slide 29:**
+* Building on the previous handler, it reads the token and secret back from the context.
+* Token used to create Oauth1 HTTP client which will sign any requests made. Twitter and Digits API clients take this client and allow requests to be made to the Twitter and Digits verification endpoints.
+* Like before, if that succeeds, the Twitter/Digits User is written to the context for later handlers.
 
-**Slide 30:**
+**Slide 25:**  
+Now that you can convert a Token -> Twitter/Digits User, the next step
+* Be careful when deciding how to do that. The …. are not safe for this mapping.
 
-**Slide 31:**
+**Slide 26:**  
+* Instead, store the Twitter ID or Digits ID in your User database models. They’re guaranteed to be stable over time.
 
-**Slide 32:**
+**Slide 27:**  
+So, a later handler can get the Twitter User from the context and use the ID to lookup the associated App User.
 
-**Slide 33:**
+**Slide 28:**  
+Do the same thing for Digits login, lookup the Note App user by the Digits User ID.
 
-**Slide 34:**
+At this point, I’d like to call attention to a few mistakes we’ve seen developers make.
 
-**Slide 35:**
+**Slide 29:**  
+At this point, I’d like to call attention to a few mistakes we’ve seen developers make.
 
-**Slide 36:**
+First, *use* the verification response you receive. Just checking that Twitter or Digits return a OK 200 HTTP response is not enough - it just proves the token is a valid token, it doesn’t tell you anything about the identity tied to the token.
 
-**Slide 37:**
+**Slide 30:**  
+This mistake usually boils down to something like this.
 
-**Slide 38:**
+A Twitter or Digits token is send to the auth service, the verification endpoint returns a 200, and gets the Note User ID from the POST.
 
-**Slide 39:**
+**Slide 31:**  
+The mistake is that any id could be passed along with the valid token.
+
+* Don’t trust the client. Don’t take shortcuts. Derive the Twitter/Digits User from the Token, then map to the corresponding User of your app.
+* You may pass additional info for prefetching, just be sure to have safeguards in place to prevent engineers from trusting data that data for authentication
+
+**Slide 32:**  
+* HTTPS - Use HTTPS for your auth service endpoints. Sensitive data. Consumer key/secret can be extracted. If an attacker can sniff…
+* Any secret embedded in your mobile clients to access your API can be extracted, no matter how obscure. The Auth Service will accept valid tokens from any client including curl, so never assume your API is public to just your apps.
+* Digits Web Login Verifications
+
+**Slide 33:**  
+Now that you can map Mobile Tokens -> Twitter/Digits User -> Note App User, you could respond to API requests like GET Notes by just attaching the token in requests
+
+But you probably have a few other requirements for your API
+
+**Slide 34:**  
+* Latency
+* Expiration - Next up, Twitter and Digits Tokens don’t expire
+* Revocation - you as an application developer don’t have an easy way to revoke them
+* Metadata - finally, you may wish to store some custom metadata in tokens for your API
+
+What this is leading up to is simply to have the auth service grant a session of some form to the app.
+
+**Slide 35:**  
+Let’s walk through how this might work.
+
+* First, we separate the auth service and note api service
+* Issue *some* form of session, possibly integrate with existing session systems. Completely up to you.
+* In this example I’ll use a JSON Web Token, which is a signed token.
+* Signing key rotation policies
+* JSON Web Tokens in this example have a few nice properties 
+
+**Slide 36:**  
+
+- claims - they support claims data which let you store JSON data in the token
+- client-side session - This lets you use them like client-side or server-side sessions. Might include just a user_id or maybe a session_id which corresponds to a backend session store, or some combination
+- optionally encrypted
+- Composer of 3 parts, a header, payload, and signature.
+- Each part is base64 encoded into a string which gets concatenated
+
+**Slide 37:**  
+
+- That string can easily be used as a Authorization header and persisted on the mobile client as long as it is valid.
+- Great libraries exist for creating JWTs.
+
+Finally, I want to show an example of the Note App we’ve discussed.
+
+**Slide 38:**  
+
+- Using TwitterKit and Digits on your mobile clients
+- Designing an authentication service which performs the right verifications, to accept Twitter/Digits tokens and exchanges them for User sessions
+- Combined with TwitterKit and Digits on the mobile clients for Android and iOS and microservices for storing Accounts and Notes, you might get an app like this.
+
+**Slide 39:**  
+
+- Link to Digits Web login additional verifications which are required.
+- All context handlers shown are drawn from the gologin library
+- A popular JWT library
