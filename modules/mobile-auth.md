@@ -33,9 +33,9 @@ Let’s get started. Many of you know that authentication can be one of the most
 I work on the Fabric engineering team and today I’d like to *show* you how Twitter and Digits can be used to *build* authentication services to power your mobile applications.
 
 **Slide 3:**  
-First, I’ll summarize when apps choose to authenticate to their own API  
-Then, I’ll review what Fabric kits provide to you, out of the box.  
-Finally I’ll dive in, to discuss building authentication services for your apps and show some example code along the way.  
+- First, I’ll summarize when apps choose to authenticate to their own API  
+- Then, I’ll review what Fabric kits provide to you, out of the box.  
+- Finally I’ll dive in, to discuss building authentication services for your apps and show some example code along the way.  
 
 **Slide 4:**  
 First off, let talk about apps. Many of the best apps offer logged-in functionality  
@@ -125,6 +125,7 @@ This concept of server verification of tokens passed from a mobile client is ver
 
 **Slide 21:**  
 To do this in Go, I’ll show a couple of ContextHandlers.
+
 * All you need to know about ContextHandlers is that they’re effectively **functions** that **receive requests** and **write responses**
 * chained - They tend to be **small** and single purpose so they can be **chained** together for more complex operations.
 * ctx - The context is just an argument passed between chained handers to propagate values btw handlers.
@@ -143,9 +144,11 @@ The next handler does the verification we talked about.
 
 **Slide 25:**  
 Now that you can convert a Token -> Twitter/Digits User, the next step
+
 * Be careful when deciding how to do that. The …. are not safe for this mapping.
 
 **Slide 26:**  
+
 * Instead, store the Twitter ID or Digits ID in your User database models. They’re guaranteed to be stable over time.
 
 **Slide 27:**  
@@ -173,6 +176,7 @@ The mistake is that any id could be passed along with the valid token.
 * You may pass additional info for prefetching, just be sure to have safeguards in place to prevent engineers from trusting data that data for authentication
 
 **Slide 32:**  
+
 * HTTPS - Use HTTPS for your auth service endpoints. Sensitive data. Consumer key/secret can be extracted. If an attacker can sniff…
 * Any secret embedded in your mobile clients to access your API can be extracted, no matter how obscure. The Auth Service will accept valid tokens from any client including curl, so never assume your API is public to just your apps.
 * Digits Web Login Verifications
@@ -183,6 +187,7 @@ Now that you can map Mobile Tokens -> Twitter/Digits User -> Note App User, you 
 But you probably have a few other requirements for your API
 
 **Slide 34:**  
+
 * Latency
 * Expiration - Next up, Twitter and Digits Tokens don’t expire
 * Revocation - you as an application developer don’t have an easy way to revoke them
