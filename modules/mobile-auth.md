@@ -39,6 +39,7 @@ Finally I’ll dive in, to discuss building authentication services for your app
 
 **Slide 4:**  
 First off, let talk about apps. Many of the best apps offer logged-in functionality  
+
 * they store and manage user content
 * they provide personalized experiences
 * they sync settings across different platforms
@@ -49,6 +50,7 @@ Apps that operate or store data on behalf of users, usually need to authenticate
 
 **Slide 6:**  
 Twitter and Digits have a lot to offer as identity providers to help you build apps like this.  
+
 * First, they’re convenient for your users - a large number of people have phone numbers or Twitter accounts. (Digits also gives users optional 2 factor auth they can turn on).
 * For you, Twitter and Digits are both highly scalable and reliable. They can simplify your stack
     * by handling resets and confirmations
@@ -63,6 +65,7 @@ Single Sign-On on the device takes a user through the OAuth1 Authorization flow
 
 **Slide 9:**  
 It handles the complexities of
+
 * obtaining request tokens
 * prompting users to grant your app access to their account
 * getting the Twitter or Digits access token
@@ -71,6 +74,7 @@ It saves you a lot of work.
 
 **Slide 10:**  
 Let’s take a look at what that flow looks like to one of your users.
+
 * An app can get a “Login with Twitter” button, which uses the installed Twitter App. Prompted to login with current account or switch accounts. If Twitter App not installed, flow falls back to web view
 * The “Login with Digits” button is similar. The user grants access by entering their phone number and receives an SMS confirmation code to confirm the phone number.
 So very quickly, your mobile app can add this flow to login a user to Twitter or Digits.
