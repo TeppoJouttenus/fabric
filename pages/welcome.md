@@ -7,6 +7,6 @@ We wanted to make it easier for you to dig into the cool stuff about Fabric so w
 Cheers,  
 The Fabric Team
 
-<img src="https://g.twimg.com/dev/marketing/fabric-homepage/introducing-fabric-homepage.png" alt="Fabric Logo" style="width:250px;height:250px" align="left">
+<img src="https://g.twimg.com/dev/marketing/fabric-homepage/introducing-fabric-homepage.png" width="250px" height="250px">
 
 <br clear="all">
