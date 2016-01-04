@@ -4,9 +4,9 @@
   "paths" : [
     {
       "name" : "fabric-flight2015",
-      "title" : "Twitter Fabric Updates from Flight 2015",
+      "title" : "Earlier Draft Path",
       "description" : "Learn what's new in Fabric, how you can use it, and what the Fabric team is doing themselves to maximize productivity.",
-      "privacy" : "public",
+      "privacy" : "private",
       "coverImage" : "https://raw.githubusercontent.com/outlearn-content/assets/master/clouds.jpg",
       "coverColor" : "#55aae7",
       "pages" : [
